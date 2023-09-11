@@ -44,7 +44,7 @@ input[type="password"] {
   text-align: center;
 }
 
-input[type="submit"],
+button[type="submit"],
 input[type="reset"] {
   width: 49%;
   padding: 10px;
@@ -56,7 +56,7 @@ input[type="reset"] {
   font-size: 18px;
 }
 
-input[type="submit"]:hover,
+button[type="submit"]:hover,
 input[type="reset"]:hover {
   background-color: #555;
 }
@@ -67,7 +67,7 @@ input[type="reset"]:hover {
     margin: 5% auto;
   }
 
-  input[type="submit"],
+  button[type="submit"],
   input[type="reset"] {
     width: 100%;
   }
