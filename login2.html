@@ -5,28 +5,25 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>설계 및 프로젝트</title>
-  <link rel="stylesheet" href="sign.css">
+  <link rel="stylesheet" href="login2.css">
+  <script src="jquery-3.4.1.js"></script>
 </head>
 
 <body>
   <form action="#" method="post">
     <fieldset>
-      <legend>회원가입</legend>
+      <legend>로그인</legend>
       <p>
-        <label for="signUpName">이름</label>
-        <input id="signUpName" type="text" name="">
+        <label for="signInEmail">이메일</label>
+        <input id="signInEmail" type="email" name="">
       </p>
       <p>
-        <label for="signUpEmail">이메일</label>
-        <input id="signUpEmail" type="email" name="">
-      </p>
-      <p>
-        <label for="signUpPassword">비밀번호</label>
-        <input id="signUpPassword" type="password" name="">
+        <label for="signInPassword">비밀번호</label>
+        <input id="signInPassword" type="password" name="">
       </p>
     </fieldset>
     <p>
-      <button type="submit" id="signUpButton">회원가입 하기</button>
+      <button type="submit" id="signInButton">로그인 하기</button>
       <input type="reset" value="재작성" />
     </p>
   </form>
@@ -54,15 +51,15 @@
     const app = initializeApp(firebaseConfig);
     const analytics = getAnalytics(app);
 
-    import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.3.1/firebase-auth.js";
+    import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.3.1/firebase-auth.js";
 
-    document.getElementById('signUpButton').addEventListener('click', (event) => {
+    document.getElementById('signInButton').addEventListener('click', (event) => {
       event.preventDefault()        //이벤트가 발생하든 일단 막아주세요
-      const signUpEmail = document.getElementById('signUpEmail').value
-      const signUpPassword = document.getElementById('signUpPassword').value
+      const signInEmail = document.getElementById('signInEmail').value
+      const signInPassword = document.getElementById('signInPassword').value
 
       const auth = getAuth();
-      createUserWithEmailAndPassword(auth, signUpEmail, signUpPassword)
+      signInWithEmailAndPassword(auth, signInEmail, signInPassword)
         .then((userCredential) => {
           console.log(userCredential)
           // Signed in 
@@ -73,7 +70,6 @@
           console.log(error)
           const errorCode = error.code;
           const errorMessage = error.message;
-          // ..
         });
     })
   </script>
